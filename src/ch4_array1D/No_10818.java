@@ -1,5 +1,6 @@
 package ch4_array1D;
 
+import java.util.Scanner;
 /** 최대, 최소
  * N개의 정수가 주어진다. 이때, 최솟값과 최댓값을 구하는 프로그램을 작성하시오.
 
@@ -10,7 +11,6 @@ package ch4_array1D;
  * 첫째 줄에 주어진 정수 N개의 최솟값과 최댓값을 공백으로 구분해 출력한다.
  */
 
-import java.util.Scanner;
 
 public class No_10818 {
     public static void main(String[] args){
