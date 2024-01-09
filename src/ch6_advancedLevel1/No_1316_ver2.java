@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
  * 첫째 줄에 그룹 단어의 개수를 출력한다.
 
  * 좀 더 다듬어보자.
+ * 함수를 만들어서 사용
  */
 public class No_1316_ver2 {
     public static void main(String[] args) throws IOException {
