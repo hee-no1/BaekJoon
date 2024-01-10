@@ -41,7 +41,7 @@ public class No_10798 {
 
         //null값이 아닌것 만 그대로 출력
         for(int i=0;i<T.length;i++){
-            for(int j=0;j<T[j].length;j++){
+            for(int j=0;j<T[i].length;j++){
                 if(T[i][j] != null){
                     System.out.print(T[i][j]);
                 }
