@@ -25,9 +25,9 @@ import java.util.StringTokenizer;
 public class No_5086 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = "";
-        while((str = br.readLine()) != null){
-            StringTokenizer st = new StringTokenizer(str);
+
+        while(true){
+            StringTokenizer st = new StringTokenizer(br.readLine());
             int left = Integer.parseInt(st.nextToken());
             int right = Integer.parseInt(st.nextToken());
 
