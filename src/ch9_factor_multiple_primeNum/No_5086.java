@@ -30,15 +30,12 @@ public class No_5086 {
             StringTokenizer st = new StringTokenizer(str);
             int left = Integer.parseInt(st.nextToken());
             int right = Integer.parseInt(st.nextToken());
-            String result = "";
-            if(left == 0 && right == 0){
-                break;
-            } else if(left < right){
-                result = right % left == 0 ? "factor" : "neither";
-            } else {
-                result = left % right == 0 ? "multiple" : "neither";
-            }
-            System.out.println(result);
+
+            if(left == 0 &  right == 0) break;
+
+            if(left % right == 0) System.out.println("multiple");
+            else if(right % left == 0) System.out.println("factor");
+            else System.out.println("neither");
         }
     }
 }
