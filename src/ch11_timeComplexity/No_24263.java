@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /** No_24263
+ * 시간 복잡도: O(N) - for문 1개
  */
 public class No_24263 {
     public static void main(String[] args) throws IOException {
