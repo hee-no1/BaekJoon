@@ -39,7 +39,7 @@ public class No_2231 {
                 System.out.println(M);
                 break;
             }else{ //같지 않다면
-                if(N > M){   //주의! 여기서는 sum이 아니라 M과 비교해야한다.
+                if(N > M){   //주의! 여기서는 sum이 아니라 M과 비교해야한다.(자리수 위치는 크지만 숫자는 작아서 더 큰 수지만 sum은 더 작을 수 있다.)
                     M++;
                 }else{
                     System.out.println(0);
