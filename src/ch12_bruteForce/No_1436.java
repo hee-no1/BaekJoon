@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
  * 출력
  * 첫째 줄에 N번째 영화의 제목에 들어간 수를 출력한다.
  */
+
 public class No_1436 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,17 +25,17 @@ public class No_1436 {
         while(N!=count){
             num++;
             int tmp = num;
-            int check = 0;
+            int check = 0; //연속된 6을 count
             while (tmp != 0) {
                 if (tmp % 10 == 6) {
                     check++;
                 } else {
-                    if(check >= 3) { break; }
+                    if(check >= 3) { break; } //해당 조건이 없으면 1666같은 경우를 인식하지 못한다.
                     check = 0;
                 }
                 tmp /= 10;
             }
-            if(check >=3){
+            if(check >=3){ //6661과 같이 마지막에 연속된 6이 나올 경우
                 count++;
             }
         }
