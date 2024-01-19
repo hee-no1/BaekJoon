@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
  * 메서드가 아닌 for문 만을 이용해서 정렬해보자.
  * 버블 정렬
  */
-public class No_2750_ver2 {
+public class No_2750_v2_bubbleSort {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
