@@ -2,7 +2,6 @@ package ch13_sort;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /** No_2751 수 정렬하기 2
