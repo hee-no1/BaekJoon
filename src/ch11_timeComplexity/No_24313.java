@@ -15,6 +15,6 @@ public class No_24313 {
         int c = Integer.parseInt(br.readLine());
         int n0 = Integer.parseInt(br.readLine());
 
-        System.out.println(a0/(c-a1) >= n0 ? 0:1);
+        System.out.println((a1 * n0 + a0 <= c * n0) && (c >= a1)?1:0);
     }
 }
