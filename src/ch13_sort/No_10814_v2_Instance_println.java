@@ -14,7 +14,7 @@ import java.util.Arrays;
  * 출력
  * 첫째 줄부터 총 N개의 줄에 걸쳐 온라인 저지 회원을 나이 순, 나이가 같으면 가입한 순으로 한 줄에 한 명씩 나이와 이름을 공백으로 구분해 출력한다.
 
- * 시간: 1544ms
+ * 시간: 1496ms
  */
 
 public class No_10814_v2_Instance_println {
@@ -32,7 +32,8 @@ public class No_10814_v2_Instance_println {
         Arrays.sort(members); //이 Comparable을 통해 Member객체를 구현할 때 이미 compareTo를 오버라이딩 했다.
 
         for(Member member : members){
-            System.out.println(member.age + " " + member.name);
+            System.out.println(member);
+            //member.toString()을 자동으로 붙여주는 것은 System.out.println의 기능
         }
     }
 
@@ -49,6 +50,11 @@ public class No_10814_v2_Instance_println {
         @Override
         public int compareTo(Member m) {
             return this.age - m.age;
+        }
+
+        @Override
+        public String toString(){
+            return this.age + " " + this.name;
         }
     }
 }
