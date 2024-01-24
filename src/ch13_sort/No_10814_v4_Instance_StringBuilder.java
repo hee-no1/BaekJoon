@@ -24,8 +24,8 @@ public class No_10814_v4_Instance_StringBuilder {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-
         Member[] members = new Member[N]; //객체 배열
+
         for(int i=0;i<N;i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             members[i] = new Member(Integer.parseInt(st.nextToken()),st.nextToken());
@@ -52,7 +52,6 @@ public class No_10814_v4_Instance_StringBuilder {
         public int compareTo(Member m){
             return this.age - m.age; //오름차순
         }
-        //compareTo가 양수일때 순서를 바꾸는 것으로 자바에서 구현되어 있다.
         @Override
         public String toString(){
             return this.age + " " + this.name;
