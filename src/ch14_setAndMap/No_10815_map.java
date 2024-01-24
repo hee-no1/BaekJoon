@@ -3,10 +3,10 @@ package ch14_setAndMap;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
-/** No_10815 숫자 카드 (Set 이용)
+/** No_10815 숫자 카드 (Map 이용)
  * 숫자 카드는 정수 하나가 적혀져 있는 카드이다. 상근이는 숫자 카드 N개를 가지고 있다. 정수 M개가 주어졌을 때, 이 수가 적혀있는 숫자 카드를 상근이가 가지고 있는지 아닌지를 구하는 프로그램을 작성하시오.
 
  * 입력
@@ -16,19 +16,19 @@ import java.util.StringTokenizer;
  * 출력
  * 첫째 줄에 입력으로 주어진 M개의 수에 대해서, 각 수가 적힌 숫자 카드를 상근이가 가지고 있으면 1을, 아니면 0을 공백으로 구분해 출력한다.
 
- * 시간: 988ms
+ * 시간: 960ms
  */
-public class No_10815 {
+public class No_10815_map {
     public static void main(String[] args) throws IOException {
-        //1. Set안에 상근이 카드를 집어넣는다. (어차피 중복되는 숫자는 없다.)
-        //2. 입력되는 숫자를 set에 있는 지 확인하면서 그 결과를 출력한다.
+        //1. Map안에 상근이 카드를 집어넣는다. (어차피 중복되는 숫자는 없다.)
+        //2. 입력되는 숫자를 Map에 있는 지 확인하면서 그 결과를 출력한다.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        HashSet<Integer> card = new HashSet<>(); //상근이의 카드
+        HashMap<String, Boolean> card = new HashMap<>(); //상근이의 카드
         for(int i=0;i<N;i++){
-            card.add(Integer.parseInt(st.nextToken()));
+            card.put(st.nextToken(), true);
         }
 
         //비교 숫자 입력
@@ -36,7 +36,7 @@ public class No_10815 {
         st = new StringTokenizer(br.readLine());
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<M;i++){
-            if(card.contains(Integer.parseInt(st.nextToken()))){
+            if(card.get(st.nextToken()) != null){
                 sb.append(1).append(" ");
             }else{
                 sb.append(0).append(" ");
