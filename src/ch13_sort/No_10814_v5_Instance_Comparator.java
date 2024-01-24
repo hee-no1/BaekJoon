@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  * 출력
  * 첫째 줄부터 총 N개의 줄에 걸쳐 온라인 저지 회원을 나이 순, 나이가 같으면 가입한 순으로 한 줄에 한 명씩 나이와 이름을 공백으로 구분해 출력한다.
 
- * 시간: 1496ms
+ * 시간: 740ms
  */
 
 public class No_10814_v5_Instance_Comparator {
