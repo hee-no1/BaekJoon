@@ -5,8 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-
-/** No_10814 나이 순 정렬 (Comparable, StringBuilder 사용)
+/** No_10814 나이 순 정렬 (Comparator, StringBuilder 사용)
  * 온라인 저지에 가입한 사람들의 나이와 이름이 가입한 순서대로 주어진다. 이때, 회원들을 나이가 증가하는 순으로, 나이가 같으면 먼저 가입한 사람이 앞에 오는 순서로 정렬하는 프로그램을 작성하시오.
 
  * 입력
@@ -17,42 +16,36 @@ import java.util.StringTokenizer;
  * 출력
  * 첫째 줄부터 총 N개의 줄에 걸쳐 온라인 저지 회원을 나이 순, 나이가 같으면 가입한 순으로 한 줄에 한 명씩 나이와 이름을 공백으로 구분해 출력한다.
 
- * 시간: 716ms
+ * 시간: 1496ms
  */
 
-public class No_10814_v4_Instance_StringBuilder {
+public class No_10814_v5_Instance_Comparator {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
+        Member[] members = new Member[N];
 
-        Member[] members = new Member[N]; //객체 배열
         for(int i=0;i<N;i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             members[i] = new Member(Integer.parseInt(st.nextToken()),st.nextToken());
         }
         br.close();
-        Arrays.sort(members);
-
+        Arrays.sort(members,(m1,m2) -> m1.age - m2.age);
         StringBuilder sb = new StringBuilder();
+
         for(Member member : members){
             sb.append(member).append("\n");
         }
-        System.out.print(sb);
+        System.out.println(sb);
     }
 
-    static class Member implements Comparable<Member>{
+    static class Member{
         int age;
         String name;
         Member(int age, String name){
             this.age = age;
             this.name = name;
         }
-
-        @Override
-        public int compareTo(Member m){
-            return this.age - m.age; //오름차순
-        }
-        //compareTo가 양수일때 순서를 바꾸는 것으로 자바에서 구현되어 있다.
         @Override
         public String toString(){
             return this.age + " " + this.name;
