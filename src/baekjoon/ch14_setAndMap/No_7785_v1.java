@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.ch14_setAndMap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.util.*;
  * 출력
  * 현재 회사에 있는 사람의 이름을 사전 순의 역순으로 한 줄에 한 명씩 출력한다
  */
-public class No_7785 {
+public class No_7785_v1 {
     public static void main(String[] args) throws IOException {
         //HashMap에 정보 저장한 다음에, value값이 enter인 것만 꺼내와서 사전 역순으로 정렬
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
