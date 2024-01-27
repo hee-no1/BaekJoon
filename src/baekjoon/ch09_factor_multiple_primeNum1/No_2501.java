@@ -1,4 +1,4 @@
-package baekjoon.ch09_factor_multiple_primeNum;
+package baekjoon.ch09_factor_multiple_primeNum1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
