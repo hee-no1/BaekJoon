@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/** No_13241 최소공배수 (유클리드 호제법, 반복법 이용)
+/** No_13241 최소공배수 (유클리드 호제법, 재귀함수 이용)
  * 당신은 두 수에 대하여 최소공배수를 구하는 프로그램을 작성 하는 것이 목표이다.
  *
  * 입력
@@ -25,28 +25,19 @@ import java.util.StringTokenizer;
  * A = aq, B = bq
  * LCM(A,B) = abq = A*B/GCD(A,B) = (aq * bq)/q
  */
-public class No_13241_v1_loop {
+public class No_13241_v2_recursive {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         long a = Integer.parseInt(st.nextToken());
         long b = Integer.parseInt(st.nextToken());
-        long q = gcd(a, b); //최대공약수
-        //여기서 a와 b의 대소관계는 신경쓰지 않아도 된다.
-        //a < b일 때 결국엔 둘의 자리가 바껴서 큰게 왼쪽에 가고 작은게 오른쪽에 오게된다.
-
-        long lcm = a * b / q;
+        long q = gcd(a,b); //최대 공약수
+        long lcm = a * b / q; //최소 공배수
         System.out.println(lcm);
-
     }
 
     private static long gcd(long a, long b){
-        while(b != 0){
-            long r = a % b;
-            a = b;
-            b = r;
-        }
-        //b == 0이 되면
-        return a;
+        if(b == 0) return a;
+        return gcd(b, a % b);
     }
 }
