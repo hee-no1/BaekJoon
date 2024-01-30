@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  * 출력
  * 첫째 줄부터 T개의 줄에 A와 B의 최소공배수를 입력받은 순서대로 한 줄에 하나씩 출력한다.
  */
-public class No_1934 {
+public class No_1934_v1 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
