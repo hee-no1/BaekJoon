@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-/** No_1735 분수 합 (돌아가는 버전)
+/** No_1735 분수 합 (그냥 통분, 이게 더 빠름)
  * 분수 A/B는 분자가 A, 분모가 B인 분수를 의미한다. A와 B는 모두 자연수라고 하자.
  * 두 분수의 합 또한 분수로 표현할 수 있다. 두 분수가 주어졌을 때, 그 합을 기약분수의 형태로 구하는 프로그램을 작성하시오. 기약분수란 더 이상 약분되지 않는 분수를 의미한다.
 
@@ -15,47 +15,35 @@ import java.util.StringTokenizer;
  * 출력
  * 첫째 줄에 구하고자 하는 기약분수의 분자와 분모를 뜻하는 두 개의 자연수를 빈 칸을 사이에 두고 순서대로 출력한다.
  */
-public class No_1735 {
+public class No_1735_v2 {
     public static void main(String[] args) throws IOException {
-        // A/B, C/D
-        //1. B와 D,  분모의 최소 공배수 구하기 = LCM
-        //2. (LCM/B * A + LCM/D * C)/LCM = E/F
-        //3. E와 F의 최대공약수 구하기
-        //4. (E/GCD)/(F/GCD)
-
+        //A/B와 C/D일 때 분모를 B*D로 통분하고, 나중에 그 합을 분자와 분모의 최대공약수로 각각 나눠준다.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken()); //분자
-        int b = Integer.parseInt(st.nextToken()); //분모
+        int a = Integer.parseInt(st.nextToken()); // 분자
+        int b = Integer.parseInt(st.nextToken()); // 분모
 
         st = new StringTokenizer(br.readLine());
-        int c = Integer.parseInt(st.nextToken());
-        int d = Integer.parseInt(st.nextToken());
+        int c = Integer.parseInt(st.nextToken()); // 분자
+        int d = Integer.parseInt(st.nextToken()); // 분모
 
-        //b와 d의 최소공배수 구하기
-        int lcm = lcm(b, d);
-        int e = lcm/b * a + lcm/d * c; //더한 결과값의 분자
-        int f = lcm; //더한 결과값의 분모
+        //분모를 bd로 통분하고 더한 결과: (ad + cb)/bd = e/f
+        int e = a*d + c*b; //분자
+        int f = b*d; //분모
 
-        //e와 f의 최대 공약수 구하기
+        //분자와 분모의 최대공약수를 구해 각각 나눠주면 기약 분수가 된다.
         int gcd = gcd(e, f);
-        e = e/gcd;
-        f = f/gcd;
-
-        System.out.println(e + " " + f);
+        System.out.println(e/gcd + " " + f/gcd);
 
     }
 
+    //최대공약수 구하기 - 유클리드 호제법 이용 A를 B로 나눈 나머지 = r, ->  GCD(A,B) = G(B,r)
     private static int gcd(int n1, int n2){
-        while(n2 !=0){
+        while(n2 != 0){
             int r = n1 % n2;
             n1 = n2;
             n2 = r;
         }
         return n1;
-    }
-
-    private static int lcm(int n1, int n2){
-        return n1 * n2 / gcd(n1, n2);
     }
 }
