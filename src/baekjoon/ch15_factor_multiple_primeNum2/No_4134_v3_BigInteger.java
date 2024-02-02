@@ -22,12 +22,15 @@ public class No_4134_v3_BigInteger {
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<T;i++){
             BigInteger num = new BigInteger(br.readLine());
+            //sb.append(num.nextProbablePrime()).append("\n"); 를 바로 사용하면 결과가 틀렸다고 나온다.
             if(num.isProbablePrime(10)){ //isProbablePrime의 매개변수에 2로 하면 결과가 틀렸습니다로 나옴
                 sb.append(num).append("\n");
             }else{
                 sb.append(num.nextProbablePrime()).append("\n");
             }
         }
+
+
         System.out.println(sb);
     }
 }

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/** No_4134 다음 소수 (반복문 두번 - O(N√N))
+/** No_4134 다음 소수 (반복문 두번 - O(N^2))
  *  정수 n(0 ≤ n ≤ 4*109)가 주어졌을 때, n보다 크거나 같은 소수 중 가장 작은 소수 찾는 프로그램을 작성하시오.
 
  * 입력
