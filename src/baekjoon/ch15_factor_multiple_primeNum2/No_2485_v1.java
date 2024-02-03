@@ -42,9 +42,6 @@ public class No_2485_v1 {
         //간격이 5개 나오면 필요한 나무는 6개 거기에 원래 있던 가로수의 개수를 빼준 것
         int result = (arr[arr.length-1] - arr[0])/gcd +1  - arr.length;
         System.out.println(result);
-        int a = 1;
-        int b = 2;
-        int lcm = lcm(a, b);
     }
 
     private static int gcd(int a, int b){
