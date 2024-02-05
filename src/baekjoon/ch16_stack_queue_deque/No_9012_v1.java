@@ -14,14 +14,14 @@ import java.util.Stack;
  * 출력은 표준 출력을 사용한다. 만일 입력 괄호 문자열이 올바른 괄호 문자열(VPS)이면 “YES”, 아니면 “NO”를 한 줄에 하나씩 차례대로 출력해야 한다.
  */
 
-public class No_9012 {
+public class No_9012_v1 {
     public static void main(String[] args) throws IOException{
         //처음에는 중간 삭제/삽입을 하려고 LinkedList를 사용하려고 했는데 -> Stack을 사용해서 문자하나하나 입력될때마다 따져서 조건에 맞으면 제거하는 씩으로 진행
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
 
-        //문자열을 받고 문자 하나씩 Stack에 담으면서 조건을 확인한다. 조건이 맞으면 제거하고 틀리면 가장 위에 담는다.
+        //문자열을 받고 문 자 하나씩 Stack에 담으면서 조건을 확인한다. 조건이 맞으면 제거하고 틀리면 가장 위에 담는다.
         for(int i=0;i<T;i++){
             Stack<Character> stack = new Stack<>();
             String str = br.readLine();
