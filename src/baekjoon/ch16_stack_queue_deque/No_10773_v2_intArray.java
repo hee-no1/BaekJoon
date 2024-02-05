@@ -1,9 +1,8 @@
 package baekjoon.ch16_stack_queue_deque;
 
 import java.io.*;
-import java.util.Stack;
 
-/** No_10773 제로 (스텍 자료구조 사용)
+/** No_10773 제로 (int[] 사용, 시간: 204ms)
  * 나코더 기장 재민이는 동아리 회식을 준비하기 위해서 장부를 관리하는 중이다.
  * 재현이는 재민이를 도와서 돈을 관리하는 중인데, 애석하게도 항상 정신없는 재현이는 돈을 실수로 잘못 부르는 사고를 치기 일쑤였다.
  * 재현이는 잘못된 수를 부를 때마다 0을 외쳐서, 가장 최근에 재민이가 쓴 수를 지우게 시킨다.
@@ -17,24 +16,27 @@ import java.util.Stack;
  * 출력
  * 재민이가 최종적으로 적어 낸 수의 합을 출력한다. 최종적으로 적어낸 수의 합은 231-1보다 작거나 같은 정수이다.
  */
-public class No_10773 {
+public class No_10773_v2_intArray {
     public static void main(String[] args) throws IOException{
-        //stack을 이용해서 0이 입력되면 pop(), 0아닌 자연수가 입력되면 push()를 해준다.
-        //stack을 사용하는 이유는 가장 최근의 입력한 수를 지우는 문제이기 때문이다.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
-        Stack<Integer> stack = new Stack<>();
+        int[] arr = new int[T];
+        int point = -1; //가장 마지막 값이 들어있는 인덱스를 가르킨다.
 
         for(int i=0;i<T;i++){
             int N = Integer.parseInt(br.readLine());
-            if(N == 0){
-                stack.pop();
-            }else{
-                stack.push(N);
+            if(N == 0){ //remove(), point가 가르키는 index의 값을 -1 해준다. 굳이 값을 삭제할 필요는 없다. 나중에 push해줄 때 덮어쓰우면 되니깐.
+                point--;
+            }else{ //push()
+                point++;
+                arr[point] = N;
             }
         }
 
-        int sum = stack.stream().mapToInt(Integer::intValue).sum();
+        int sum = 0;
+        for(int i=0;i<=point;i++){
+            sum += arr[i];
+        }
         System.out.println(sum);
     }
 }
