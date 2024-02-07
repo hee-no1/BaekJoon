@@ -1,6 +1,7 @@
 package baekjoon.ch16_stack_queue_deque;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Stack;
 
 /** No_4949 균형잡힌 세상 (212ms)
