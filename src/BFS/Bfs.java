@@ -20,23 +20,23 @@ public class Bfs {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     }; //파란칸:1, 빨간칸:0
 
-    static Queue<Pair> queue = new LinkedList<>();
     static boolean[][] visited = new boolean[board.length][board[0].length];
+    static Queue<Pair> queue = new LinkedList<>();
     static int[][] dir = {
             {1,0},{0,1},{-1,0},{0,-1}  //↓, →, ↑, ← 상하좌우 네방향 {행,열}
     };
 
     public static void main(String[] args) {
 
-        //초기 세팅하기
+        //초기 세 - (0,0)에서 시
         visited[0][0] = true;
         queue.add(new Pair(0, 0));
 
         while (!queue.isEmpty()) {
+            //큐의 front에서 poll (선입선출)
+            Pair pair = queue.poll();
 
-            Pair pair = queue.poll(); // 큐에서 선입선출 Pair 하나 꺼내기
-
-            //꺼낸 pair의 상하좌우 살피기
+            //상하좌우 살피기
             for (int i = 0; i < 4; i++) {
                 int x = pair.x + dir[i][0];
                 int y = pair.y + dir[i][1];
@@ -44,8 +44,8 @@ public class Bfs {
                 if(x < 0 || x > board.length || y < 0 || y > board[0].length){ continue; } // 인덱스 범위 밖으로 벗어나는 경우, runtime에러를 방지하기 위해 아래 if문보다 먼저 써야한다.
                 if(visited[x][y] || board[x][y] == 0){ continue; } // 이미 방문했거나 파란색이 아닐 경우
 
-                visited[x][y] = true;
-                queue.add(new Pair(x,y));
+                visited[x][y] = true; //visited 배열에 방문한 것을 표시
+                queue.add(new Pair(x,y)); //큐에 저장
 
             }
 
@@ -61,5 +61,3 @@ public class Bfs {
         }
     }
 }
-
-
