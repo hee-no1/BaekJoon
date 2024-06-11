@@ -18,13 +18,6 @@
         };
 
         public static void main(String[] args) throws IOException {
-            /*
-                visited 배열
-                Queue
-                min - 전역
-                num - 지역, 비교대상
-                (N,M)에 도착할 때 & queue가 빌 때, (N,M)일때는 visited에 넣지 않아야한거같음
-             */
 
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String[] split = br.readLine().split(" ");
