@@ -13,7 +13,7 @@ import java.util.Queue;
  * 2. 상하좌우 check
  * 3. 모든 파란칸을 탐색 - bfs => visited배열, Queue
  */
-public class Bfs {
+public class BFS_basic {
     static int[][] board = {
             {1, 1, 1, 0, 1, 0, 0, 0, 0, 0},
             {1, 0, 0, 0, 1, 0, 0, 0, 0, 0},
@@ -36,11 +36,12 @@ public class Bfs {
         visited[0][0] = true;
         queue.offer(new Pair(0, 0));
 
+        int count = 0;
         while (!queue.isEmpty()) {
             //큐의 front에서 poll (선입선출)
             Pair pair = queue.poll();
-            System.out.println(pair);
-
+//            System.out.println(pair);
+            count++;
             //상하좌우 살피기
             for (int i = 0; i < dir.length; i++) {
                 int x = pair.x + dir[i][0];
@@ -55,6 +56,7 @@ public class Bfs {
             }
 
         }
+        System.out.println(count);
     }
     static class Pair{
         int x;
